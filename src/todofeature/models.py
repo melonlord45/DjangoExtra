@@ -43,7 +43,10 @@ class Task(TimeStamp):
         blank=True,
         null=True,
     )
-    task_time = models.DateField()
+    task_time = models.DateField(
+        blank=True,
+        null=True,
+    )
     priority = models.CharField(
         max_length=100,
         choices=Priority.choices,
@@ -55,7 +58,10 @@ class Task(TimeStamp):
         blank=True,
         null=True,
     )
-    labels = models.ManyToManyField(Label)
+    labels = models.ManyToManyField(
+        Label,
+        blank=True,
+    )
 
     def __str__(self):
         return self.name
